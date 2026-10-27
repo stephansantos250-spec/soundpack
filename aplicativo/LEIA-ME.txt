@@ -1,0 +1,80 @@
+TEMAS CLARO E ESCURO — VERSÃO 2.1
+
+Na parte inferior do menu lateral, vá em Aparência e escolha Claro ou Escuro.
+A escolha é salva automaticamente e restaurada ao abrir o aplicativo.
+A troca de tema preserva página, busca, pacotes selecionados, volumes
+ainda não salvos e a variante Original/Esportivo. A prévia de áudio é parada.
+Não é necessário reiniciar o aplicativo para mudar o tema.
+
+ATUALIZAR
+Extraia em uma pasta nova e execute 1_EXECUTAR.bat.
+Se usa EXE, gere novamente com 2_CRIAR_EXE.bat no Windows.
+O ZIP contém código-fonte; não contém um EXE compilado.
+Mantenha a versão anterior até testar a nova.
+
+TESTES DOS TEMAS
+Verificados nos dois tamanhos de janela: 1240x850 e 1100x780.
+Testadas 12 alternâncias consecutivas e reabertura em processo separado.
+Contraste das cores principais verificado em ambos os temas.
+Reprodução e integração com o jogo ainda precisam ser testadas no Windows.
+
+------------------------------------------------------------
+ATS&ETS2 — SOUND MANAGER 2.1 / LIGHT & DARK
+
+INTERFACE
+Visual inspirado em Material Design. Implementado em Python/Tkinter,
+sem React, Electron, navegador embutido ou dependências visuais extras.
+Não usa a biblioteca React MUI. Reaproveita as funções do gerenciador anterior.
+Tamanho inicial: 1240x850; mínimo: 1100x780 (pixels de janela antes do DPI).
+Alguns painéis têm rolagem quando há pouco espaço.
+
+ABRIR NO WINDOWS
+1. Extraia TODOS os arquivos para uma pasta nova; mantenha a versão anterior.
+2. Instale Python 64 bits com Tkinter e marque Add Python to PATH.
+3. Execute 1_EXECUTAR.bat.
+4. Em Instalação, escolha a pasta principal do ATS ou ETS2.
+5. A biblioteca lista os bancos encontrados na pasta do plugin.
+6. Ouça, selecione, salve e depois use Aplicar no jogo.
+
+GERAR EXE
+Execute 2_CRIAR_EXE.bat no Windows. O script baixa o PyInstaller
+e gera dist\ATS_ETS2.exe com o ícone incluído. Não há EXE pronto neste ZIP.
+A criação do EXE não foi executada neste ambiente Linux.
+
+CAMINHONETES — IMPORTANTE
+Hilux 2.8 diesel; S10 2.8 diesel; Ranger 3.2 diesel;
+Amarok 3.0 V6 diesel; F-150 5.0 V8 gasolina.
+A aba organiza gravações WAV originais e esportivas separadamente.
+Nenhum som real ou sintetizado foi incluído neste pacote.
+Use Importar WAV para uma gravação própria ou autorizada de cada versão.
+O app pede confirmação de origem; não identifica autenticidade sozinho.
+A reprodução WAV usa o winsound do Windows.
+Os WAV são copiados para %APPDATA%\ATS_Pack_Manager\pickup_audio.
+
+Importar WAV NÃO converte para .bank e NÃO altera o som no jogo.
+É preciso preparar os bancos com eventos compatíveis no FMOD Studio
+e testar no plugin. A aplicação no jogo fica desabilitada nessa aba.
+Bancos já prontos e compatíveis podem ser importados pela Biblioteca.
+O plugin tem seleção GLOBAL, não troca automaticamente por veículo.
+
+PRESERVAÇÃO DOS DADOS
+A configuração continua em %APPDATA%\ATS_Pack_Manager\config.json.
+Faça backup dessa pasta e da pasta do plugin antes de atualizar.
+Não exclua a versão anterior até testar a nova com seu jogo.
+
+FMOD E PLUGIN
+A prévia .bank ainda precisa das DLLs FMOD compatíveis em 64 bits,
+procuradas na pasta bin\win_x64 do jogo e nos caminhos já suportados.
+Instalação/atualização do plugin precisa de internet; há importação ZIP offline.
+Mantenha o jogo fechado para instalar, remover ou configurar o console.
+Com o jogo aberto, o comando de recarga é sdk reload.
+A automação de teclado pode depender do layout e dos privilégios no Windows.
+
+VALIDAÇÃO DESTA VERSÃO
+Janela aberta e inspecionada no Linux em 1240x850 e 1100x780.
+Testes com arquivos temporários: seleção/busca, salvamento de bancos,
+volumes, importação WAV, alteração do console e backup de config.cfg.
+Não foram testados: reprodução no Windows, FMOD, instalação real do plugin,
+automação do teclado no jogo nem integração no ATS/ETS2.
+Não foi medido consumo real de CPU/RAM no Windows.
+Atualização visual em repouso menos frequente; durante prévia mantém 50 ms.

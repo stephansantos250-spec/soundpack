@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+*.zip
+*.rar
+*.bank
+*.bank.guids
+*.dll
+config.json
