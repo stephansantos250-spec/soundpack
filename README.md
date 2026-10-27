@@ -1,49 +1,57 @@
 # soundpack — ATS&ETS2
 
-Gerenciador de pacotes de som com temas **Claro e Escuro**, acompanhado da pasta `ts-fmod-plugin` enviada para este pacote.
+Gerenciador de sons com temas **Claro e Escuro**, acompanhado do novo **plugin_files.zip** fornecido pelo usuário.
 
-## Download completo
+## Download atualizado — pacote 2.1.1
 
-Baixe **soundpack-completo-v2.1.0.zip** na seção [**Releases**](https://github.com/stephansantos250-spec/soundpack/releases/latest). O código-fonte do repositório não inclui os bancos de áudio; o ZIP completo inclui.
+Baixe **soundpack-completo-v2.1.1.zip** em [Releases](https://github.com/stephansantos250-spec/soundpack/releases/latest).
 
-## Conteúdo do ZIP
+A pasta de roncos do pacote anterior foi retirada. Esta versão inclui apenas o app e o novo plugin enviado, sem os 97 bancos de som anteriores. A versão do pacote não indica uma nova versão da DLL: nenhum número de versão do plugin foi inferido.
 
 ```text
 soundpack/
-├── aplicativo/             # App Python, scripts de execução e geração de EXE, logo e ícone
-├── ts-fmod-plugin/         # 97 bancos .bank e arquivos complementares enviados pelo usuário
-├── ts-fmod-plugin.dll      # DLL incluída no arquivo enviado
-├── CONTEUDO_RONCOS.csv     # Inventário e hashes dos arquivos enviados
+├── aplicativo/           # App, scripts, logo e ícone
+├── plugin_files.zip      # Novo arquivo, preservado sem alteração
+├── CONTEUDO_PLUGIN.csv   # Arquivos internos do plugin e SHA-256
+├── docs/tema-escuro.png
 └── README.md
 ```
 
-## Instalar no Windows
+## Instalação pelo aplicativo
 
-1. **Feche o jogo. Faça backup** da sua pasta `bin\win_x64\plugins` e de `%APPDATA%\ATS_Pack_Manager`.
-2. Extraia o ZIP completo em uma pasta nova.
-3. Copie a pasta **ts-fmod-plugin** e o arquivo **ts-fmod-plugin.dll** para `bin\win_x64\plugins` do jogo. A DLL deve ficar ao lado da pasta, não dentro dela. Confira os arquivos antes de substituir os existentes.
-4. Abra `aplicativo\1_EXECUTAR.bat`. É necessário Python de 64 bits com Tkinter instalado.
-5. Em **Instalação**, selecione a pasta principal do jogo. Na **Biblioteca**, atualize a lista, ouça uma prévia quando disponível, selecione e salve.
-6. Para trocar com o jogo aberto, use **Aplicar no jogo** ou `sdk reload` no console. Ative o console com o jogo fechado antes da primeira utilização.
+1. **Feche o jogo e faça backup** da pasta `bin\win_x64\plugins` e de `%APPDATA%\ATS_Pack_Manager`.
+2. Extraia o pacote completo em uma pasta nova. Abra `aplicativo\1_EXECUTAR.bat` com Python 64 bits e Tkinter instalados.
+3. Escolha **ATS** ou **ETS2** no topo da janela. Em **Instalação**, selecione a pasta principal desse jogo.
+4. Clique em **Importar ZIP offline** e selecione o novo `plugin_files.zip` que acompanha este pacote. O app instala a DLL e escolhe o `master.bank` da pasta ATS ou ETS2 conforme o jogo selecionado.
+5. O novo arquivo **não contém roncos adicionais**. Para usar sons personalizados, importe bancos compatíveis pela Biblioteca.
 
-O caminho informado para este pacote foi `F:\SteamLibrary\steamapps\common\American Truck Simulator\bin\win_x64\plugins`. O app também tem seleção de ETS2, mas **não foi verificada a compatibilidade destes bancos e deste master.bank com ETS2 nem com cada versão do ATS**. Não copie para outro jogo sem verificar essa compatibilidade.
+O instalador do app preserva os arquivos locais `selected.bank.txt` e `sound_levels.txt` se já existirem. Ele também **não apaga os bancos antigos da pasta do seu computador**. Para uma instalação limpa, faça backup e mova a pasta antiga `ts-fmod-plugin` para fora de `plugins`, antes de importar o novo ZIP. Não apague seus únicos exemplares dos roncos.
 
-## Temas e executável
+Se não há bancos de som importados, deixe a seleção vazia. O `selected.bank.txt` do ZIP original pode citar bancos de exemplo que não estão incluídos.
 
-Em **Aparência**, no canto inferior esquerdo, escolha **Claro** ou **Escuro**. A preferência é salva. Para gerar um executável no Windows, execute `aplicativo\2_CRIAR_EXE.bat`. **Este pacote não inclui um EXE compilado.**
+## Instalação manual (opcional)
 
-![Interface com tema escuro](docs/tema-escuro.png)
+Extraia `plugin_files.zip` em uma pasta temporária. Copie `ts-fmod-plugin.dll` e a pasta `ts-fmod-plugin` para `bin\win_x64\plugins` do jogo. Depois copie **somente** o `master.bank` da pasta **ATS** ou **ETS2**, conforme o jogo, para dentro de `bin\win_x64\plugins\ts-fmod-plugin`. As pastas ATS e ETS2 do ZIP são alternativas de instalação, não pacotes de roncos.
 
-## Sons incluídos e limites
+## Aparência e executável
 
-- Os bancos foram fornecidos pelo usuário no arquivo `ts-fmod-plugin.rar`, preservados sem edição de áudio. Não são o pacote sintetizado produzido anteriormente na conversa.
-- Não foi verificado se os sons são gravações reais, a motorização exata de cada banco ou sua licença de redistribuição. A quantidade de bancos não significa quantidade de modelos de veículos.
-- A aba **Caminhonetes** é um organizador de WAV para preparação. Ela não transforma WAV em .bank nem aplica esses WAV ao jogo. Não foram acrescentadas gravações novas de caminhonetes.
-- A seleção do plugin é global; não troca automaticamente por veículo.
-- `master.bank`, `effects.bank` e `tires.bank` vieram sem um arquivo `.bank.guids` correspondente. Nem todos os bancos terão prévia no app.
-- Sons, DLL e materiais de terceiros mantêm os direitos e créditos de seus respectivos autores. Este repositório não concede uma licença nova sobre eles.
-- Projeto do plugin original: https://github.com/dariowouters/ts-fmod-plugin
+No menu lateral, em **Aparência**, escolha **Claro** ou **Escuro**. A preferência é salva. Para gerar um executável no Windows, use `aplicativo\2_CRIAR_EXE.bat`. **Não há EXE compilado no download.**
 
-## Validação
+![Tema escuro](docs/tema-escuro.png)
 
-A extração do RAR foi verificada e o ZIP foi conferido por CRC. O inventário inclui SHA-256 dos arquivos fornecidos. A interface e os fluxos locais do app foram testados no Linux com arquivos temporários. **Reprodução, FMOD, DLL, instalação e integração no jogo não foram testados no Windows.** Os binários enviados não foram executados neste ambiente.
+## Conteúdo e limites
+
+O novo ZIP contém:
+- `ts-fmod-plugin.dll`;
+- `ATS/master.bank` e `ETS2/master.bank`;
+- `ts-fmod-plugin/selected.bank.txt` e `ts-fmod-plugin/sound_levels.txt`.
+
+Nenhum banco de ronco anterior nem som sintetizado foi incluído. A aba Caminhonetes organiza gravações WAV para preparação, sem compilá-las em .bank. A seleção do plugin é global, não automática por veículo.
+
+Projeto do plugin: https://github.com/dariowouters/ts-fmod-plugin
+
+Os materiais de terceiros mantêm os direitos dos respectivos autores; este repositório não lhes atribui uma licença nova. O novo `plugin_files.zip` foi enviado pelo usuário; sua procedência e versão não foram verificadas de forma independente.
+
+## Verificação
+
+ZIPs conferidos por CRC e arquivo do plugin preservado byte a byte. `CONTEUDO_PLUGIN.csv` lista os hashes dos arquivos internos. A interface do app e os fluxos locais já foram testados no Linux. **A nova DLL, reprodução e integração com ATS/ETS2 não foram testadas no Windows.**
